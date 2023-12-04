@@ -89,7 +89,7 @@ def system(concentrations, t):
     
     return [dAHL_dt, dArab_dt, dHrpR_dt, dHrpS_dt, dT7_dt, dCl_dt, dGFP_dt]
 
-end_time = 3000
+end_time = 4500
 t = np.linspace(0, end_time, 1000)  
 
 
