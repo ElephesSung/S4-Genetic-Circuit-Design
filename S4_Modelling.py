@@ -76,13 +76,13 @@ def system(concentrations, t):
     AHL, Arab, HrpR, HrpS, T7, Cl, GFP = concentrations
     
     AHL_term = AHL**n_R / (AHL**n_R + K_R**n_R) if AHL > 0 else 0
-    Cl_term = Cl**n_C / (Cl**n_C + K_C**n_C) if Cl > 0 else 0
+    Arab_term = Arab**n_S / (Arab**n_S + K_S**n_S) if Arab > 0 else 0
    
    
     dAHL_dt =  -k1 * AHL
     dArab_dt = -k2 * Arab
     dHrpR_dt = k_R * (Alpha_R + AHL_term) - Sigma_R * HrpR
-    dHrpS_dt = k_S * (Alpha_S + Cl_term) - Sigma_S * HrpS
+    dHrpS_dt = k_S * (Alpha_S + Arab_term) - Sigma_S * HrpS
     dT7_dt = k_L * (HrpR**n_RL / (HrpR**n_RL + K_RL**n_RL)) * (HrpS**n_SL / (HrpS**n_SL + K_SL**n_SL)) + k_T7 * T7 - Sigma_T7 * T7
     dCl_dt = k_T7 * T7 - Sigma_Cl * Cl
     dGFP_dt = k_C * (Alpha_C + K_C**n_C / (Cl**n_C + K_C**n_C)) - Sigma_G * GFP
